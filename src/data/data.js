@@ -6,7 +6,7 @@ export const personal = {
   name: "Alejandro Amor Rico",
   role: "Web Developer",
   tagline: "Passionate about creating intuitive and engaging user experiences. Specialize in transforming ideas into beautifully crafted products.",
-  yearsOfExperience: 4,
+  yearsOfExperience: 1,
   projectsCompleted: 18,
   worldwideClients: 8,
   // Replace with your actual photo URL or a local import
