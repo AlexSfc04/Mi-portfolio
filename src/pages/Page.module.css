@@ -1,0 +1,6 @@
+/* pages/Page.module.css */
+/* Standalone pages need top padding to clear the fixed nav */
+
+.page {
+  padding-top: 80px;
+}

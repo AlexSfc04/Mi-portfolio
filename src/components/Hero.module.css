@@ -1,0 +1,242 @@
+/* components/Hero.module.css */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  overflow: hidden;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ── Photo column ── */
+.photoCol {
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.9s ease;
+  min-width: 0;
+}
+
+.photoCol.visible {
+  opacity: 1;
+}
+
+.photoWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 60%,
+    var(--bg) 100%
+  );
+}
+
+/* Social pills */
+.socials {
+  position: absolute;
+  bottom: 40px;
+  left: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.socialLink {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  background: rgba(12, 12, 12, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 12px;
+  text-decoration: none;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.socialLink:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+/* ── Content column ── */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3rem);
+  min-width: 0;
+}
+
+/* Fade helpers for staggered children */
+.label,
+.heading,
+.tagline,
+.statsRow,
+.marqueeWrap {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.label {
+  margin-bottom: 20px;
+}
+
+/* ── Heading ── */
+.heading {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.headingWord {
+  display: block;
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 420px;
+  margin-bottom: 48px;
+}
+
+/* ── Stats ── */
+.statsRow {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statValue {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: pre-line;
+  line-height: 1.4;
+}
+
+/* ── Marquee ── */
+.marqueeWrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+  animation: marquee 18s linear infinite;
+}
+
+.marqueeItem {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-right: 24px;
+}
+
+.marqueeDot {
+  color: #333;
+  margin-left: 24px;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 55vh auto;
+    min-height: auto;
+  }
+
+  .photoCol {
+    height: 55vh;
+  }
+
+  .photoWrap {
+    height: 100%;
+    min-height: unset;
+  }
+
+  .photoOverlay {
+    background: linear-gradient(to bottom, transparent 40%, var(--bg) 100%);
+  }
+
+  .socials {
+    flex-direction: row;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .contentCol {
+    padding: 40px var(--px) 80px;
+  }
+
+  .statsRow {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+}
