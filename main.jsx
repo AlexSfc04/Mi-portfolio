@@ -9,11 +9,3 @@ createRoot(document.getElementById("root")).render(
     <App />
   </StrictMode>
 );
-
-// Hide drawer element
-setTimeout(() => {
-  const drawer = document.querySelector('._drawer_1w1y8_123');
-  if (drawer) {
-    drawer.style.display = 'none';
-  }
-}, 0);
