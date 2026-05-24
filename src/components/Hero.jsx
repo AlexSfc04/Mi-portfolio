@@ -1,11 +1,12 @@
 // components/Hero.jsx
 import { useEffect, useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { personal } from "../data/data";
 import styles from "./Hero.module.css";
 
 const SOCIAL_LINKS = [
-  { label: "GitHub", href: personal.github, short: "GH" },
-  { label: "LinkedIn", href: personal.linkedin, short: "LI" },
+  { label: "GitHub", href: personal.github, icon: FaGithub },
+  { label: "LinkedIn", href: personal.linkedin, icon: FaLinkedin },
 ];
 
 const STATS = [
@@ -40,7 +41,7 @@ export default function Hero() {
 
           {/* Social pills — overlaid bottom-left of photo */}
           <div className={styles.socials}>
-            {SOCIAL_LINKS.map(({ label, href, short }) => (
+            {SOCIAL_LINKS.map(({ label, href, icon: Icon }) => (
               <a
                 key={label}
                 href={href}
@@ -49,7 +50,7 @@ export default function Hero() {
                 className={styles.socialLink}
                 aria-label={label}
               >
-                {short}
+                <Icon size={20} />
               </a>
             ))}
           </div>
