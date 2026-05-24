@@ -56,7 +56,7 @@ export const experience = [
   },
   {
     company: "Ayuntamiento de Villaverde del Río",
-    role: "IT Systems & Networks Technician",
+    role: "IT Systems & Networks Technician", 
     period: "Mar 2023 – Jun 2023",
     desc: "Maintenance and technical support of computer systems and networks in a public sector environment.",
     url: "#",
